@@ -1,5 +1,10 @@
 ## Student: Nguyễn Văn Minh - 22003405
-### Week 02 - 2025 - 2026
+### Week 01 - 2025 - 2026
+```
++ Message Queue & JWT Authentication
++ Bài tập bổ sung 1
++ Bài tập bổ sung 2
+```
 
 #### Theory
 ```
