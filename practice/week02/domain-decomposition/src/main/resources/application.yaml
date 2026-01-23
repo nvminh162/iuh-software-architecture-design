@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: domain-decomposition
+
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+logging:
+  level:
+    com.nvminh162.domain: DEBUG
+    org.springframework.web: INFO
