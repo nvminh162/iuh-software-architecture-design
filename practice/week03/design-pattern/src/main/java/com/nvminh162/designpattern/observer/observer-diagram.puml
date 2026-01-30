@@ -1,0 +1,58 @@
+@startuml
+title Observer Design Pattern - Stock Price & Task Status Notification
+
+' ===== Observer Interface =====
+interface Observer {
+  + update(subjectName : String, data : Object) : void
+}
+
+' ===== Subject Interface =====
+interface Subject {
+  + attach(observer : Observer) : void
+  + detach(observer : Observer) : void
+  + notifyObservers() : void
+}
+
+' ===== Stock Subject =====
+class Stock {
+  - name : String
+  - price : double
+  - observers : List<Observer>
+  + setPrice(price : double) : void
+  + attach(observer : Observer) : void
+  + detach(observer : Observer) : void
+  + notifyObservers() : void
+}
+
+' ===== Investor Observer =====
+class Investor {
+  - name : String
+  + update(subjectName : String, data : Object) : void
+}
+
+' ===== Task Subject =====
+class Task {
+  - name : String
+  - status : String
+  - observers : List<Observer>
+  + setStatus(status : String) : void
+  + attach(observer : Observer) : void
+  + detach(observer : Observer) : void
+  + notifyObservers() : void
+}
+
+' ===== TeamMember Observer =====
+class TeamMember {
+  - name : String
+  + update(subjectName : String, data : Object) : void
+}
+
+' ===== Relationships =====
+Subject <|.. Stock
+Subject <|.. Task
+Observer <|.. Investor
+Observer <|.. TeamMember
+Stock o-- Observer : notifies
+Task o-- Observer : notifies
+
+@enduml

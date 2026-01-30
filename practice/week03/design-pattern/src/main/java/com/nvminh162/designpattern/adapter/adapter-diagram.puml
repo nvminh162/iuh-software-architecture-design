@@ -1,0 +1,36 @@
+@startuml
+title Adapter Design Pattern - XML to JSON Conversion
+
+' ===== Target Interface =====
+interface JsonService {
+  + sendJson(jsonData : String) : void
+}
+
+' ===== Adaptee =====
+class XmlService {
+  + sendXml(xmlData : String) : void
+}
+
+' ===== Adapter =====
+class XmlToJsonAdapter {
+  - xmlService : XmlService
+  + sendJson(jsonData : String) : void
+  - convertJsonToXml(jsonData : String) : String
+}
+
+' ===== Client =====
+class Client {
+  + useService(service : JsonService) : void
+}
+
+' ===== Relationships =====
+JsonService <|.. XmlToJsonAdapter
+XmlToJsonAdapter o-- XmlService : adapts
+Client --> JsonService : uses
+
+note right of XmlToJsonAdapter
+  Adapter converts JSON to XML
+  and calls XmlService.sendXml()
+end note
+
+@enduml

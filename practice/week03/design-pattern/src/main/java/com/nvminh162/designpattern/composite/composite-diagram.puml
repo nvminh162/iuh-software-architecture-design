@@ -1,0 +1,30 @@
+@startuml
+title Composite Design Pattern - File System
+
+' ===== Component =====
+interface FileSystemItem {
+  + display(indent : String) : void
+}
+
+' ===== Leaf =====
+class File {
+  - name : String
+  - size : int
+  + display(indent : String) : void
+}
+
+' ===== Composite =====
+class Folder {
+  - name : String
+  - children : List<FileSystemItem>
+  + add(item : FileSystemItem) : void
+  + remove(item : FileSystemItem) : void
+  + display(indent : String) : void
+}
+
+' ===== Relationships =====
+FileSystemItem <|.. File
+FileSystemItem <|.. Folder
+Folder o-- FileSystemItem : contains
+
+@enduml
