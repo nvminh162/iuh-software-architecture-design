@@ -1,0 +1,36 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: service-a
+
+service-b:
+  # Base URL của service B mà service A sẽ gọi
+  base-url: http://localhost:8082/api/b
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      serviceB:
+        registerHealthIndicator: true
+        slidingWindowSize: 10
+        minimumNumberOfCalls: 5
+        waitDurationInOpenState: 10s
+        failureRateThreshold: 50
+  retry:
+    instances:
+      serviceB:
+        maxAttempts: 3
+        waitDuration: 300ms
+  ratelimiter:
+    instances:
+      serviceB:
+        limitForPeriod: 2
+        limitRefreshPeriod: 10s
+        timeoutDuration: 0
+  bulkhead:
+    instances:
+      serviceB:
+        maxConcurrentCalls: 2
+        maxWaitDuration: 0

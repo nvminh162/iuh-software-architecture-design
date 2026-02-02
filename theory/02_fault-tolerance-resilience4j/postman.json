@@ -1,0 +1,118 @@
+{
+  "info": {
+    "name": "fault-tolerance-resilience4j-demo",
+    "description": "Demo 2 service Spring Boot với Resilience4j: Retry, CircuitBreaker, RateLimiter, Bulkhead.",
+    "_postman_id": "7c6c8a6f-4a4b-4d0e-9e5c-111111111111",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Service B (backend)",
+      "item": [
+        {
+          "name": "B - OK",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/b/ok",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8082",
+              "path": ["api", "b", "ok"]
+            }
+          }
+        },
+        {
+          "name": "B - Maybe Error (random lỗi)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/b/maybe-error",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8082",
+              "path": ["api", "b", "maybe-error"]
+            }
+          }
+        },
+        {
+          "name": "B - Slow (4s)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/b/slow",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8082",
+              "path": ["api", "b", "slow"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Service A (client + Resilience4j)",
+      "item": [
+        {
+          "name": "A - Retry",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/a/retry",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "a", "retry"]
+            }
+          }
+        },
+        {
+          "name": "A - Circuit Breaker",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/a/cb",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "a", "cb"]
+            }
+          }
+        },
+        {
+          "name": "A - Rate Limiter",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/a/rate-limiter",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "a", "rate-limiter"]
+            }
+          }
+        },
+        {
+          "name": "A - Bulkhead",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/a/bulkhead",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "a", "bulkhead"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
