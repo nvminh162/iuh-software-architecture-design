@@ -1,0 +1,13 @@
+{
+  "name": "bai06_multi",
+  "version": "1.0.0",
+  "description": "Demo multi-stage build Node.js app",
+  "main": "index.js",
+  "scripts": {
+    "build": "echo \"Nothing to build\"",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
+
