@@ -1,0 +1,44 @@
+services:
+  mariadb:
+    image: mariadb:11
+    container_name: food_mariadb
+    environment:
+      MARIADB_ROOT_PASSWORD: rootpass
+      MARIADB_DATABASE: example
+      MARIADB_USER: fooduser
+      MARIADB_PASSWORD: foodpass
+    ports:
+      - "3306:3306"
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 8
+
+  backend:
+    build:
+      context: ./food-backend
+    container_name: food_backend
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mariadb://mariadb:3306/example
+      SPRING_DATASOURCE_USERNAME: fooduser
+      SPRING_DATASOURCE_PASSWORD: foodpass
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+
+  frontend:
+    build:
+      context: ./food-reactjs
+    container_name: food_frontend
+    depends_on:
+      - backend
+    ports:
+      - "5173:80"
+
+volumes:
+  mariadb_data:
