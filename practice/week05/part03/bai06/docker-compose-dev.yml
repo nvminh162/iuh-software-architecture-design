@@ -1,0 +1,21 @@
+services:
+  app:
+    build:
+      context: .
+      target: dev
+    container_name: bai06_app_dev
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/app
+
+  tests:
+    build:
+      context: .
+      target: dev
+    container_name: bai06_tests
+    depends_on:
+      - app
+    volumes:
+      - ./:/app
+    entrypoint: ["sh", "-c", "while true; do pytest -q; sleep 5; done"]
