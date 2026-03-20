@@ -1,0 +1,19 @@
+services:
+  server:
+    image: nginx:latest
+    container_name: bai14_server
+    networks:
+      - private_net
+
+  client:
+    image: busybox:latest
+    container_name: bai14_client
+    command: sh -c "while true; do wget -qO- http://server || true; sleep 10; done"
+    depends_on:
+      - server
+    networks:
+      - private_net
+
+networks:
+  private_net:
+    driver: bridge
