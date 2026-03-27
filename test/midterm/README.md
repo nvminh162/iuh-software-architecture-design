@@ -22,20 +22,28 @@ GV: Nguyễn Trọng Tiến
 ```
 Ôn thi Giữa kỳ:
 - Design Pattern:
-    + singleton
-    + factory method
-    + abstract
-    + state
-    + strategy
-    + observer
-    + decorator
+    (?) singleton
+    (?) factory method
+    (?) abstract
+    (?) state
+    (?) strategy
+    (?) observer
+    (?) decorator
 	
-- Architecture style 
-	+ Vẽ sơ đồ kiến trúc
-	+ Giải thích tại sao lại chọn?
-	+ Một số câu hỏi về Kiến trúc
+- Architecture styles
+    - Monolithic Architectures
+            + Layered architecture <thường không ra thi>
+            + Pipeline architecture
+            + Microkernel architecture
+    - Distributed Architectures
+            + Service-based
+            + Event driven
+	
+                (?) Vẽ sơ đồ kiến trúc
+                (?) Giải thích tại sao lại chọn?
+                (?) Một số câu hỏi về Kiến trúc
 	
 - Architecture characteristis:
-	+ Trình bày một vài đặc tính kiến trúc
-	+ Một số câu hỏi về đặc tính
+	(?) Trình bày một vài đặc tính kiến trúc
+	(?) Một số câu hỏi về đặc tính
 ```
