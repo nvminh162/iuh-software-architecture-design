@@ -54,4 +54,6 @@ GV: Nguyễn Trọng Tiến
         (Làm sao để đạt Available 24/7=> kịch bản deploy như thế nào, chiến thuật deploy lúc nửa đêm?)
         (Thời gian deploy layered vài tiếng)
         (Tại sao servicebased tính module 4sao, tạo sao deploy 4sao ? => distributed cao)
+
+(ví dụ: dk HP IUH)
 ```
