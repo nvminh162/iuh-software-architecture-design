@@ -1,0 +1,16 @@
+T:\lab02\src\main\java\com\nvminh162\lab02\functional\config\InventoryDbConfig.java
+T:\lab02\src\main\java\com\nvminh162\lab02\functional\config\OrderDbConfig.java
+T:\lab02\src\main\java\com\nvminh162\lab02\functional\inventory\InventoryProduct.java
+T:\lab02\src\main\java\com\nvminh162\lab02\functional\inventory\InventoryProductRepository.java
+T:\lab02\src\main\java\com\nvminh162\lab02\functional\orders\CustomerOrder.java
+T:\lab02\src\main\java\com\nvminh162\lab02\functional\orders\CustomerOrderRepository.java
+T:\lab02\src\main\java\com\nvminh162\lab02\horizontal\entity\BaseUser.java
+T:\lab02\src\main\java\com\nvminh162\lab02\horizontal\entity\UserFemale.java
+T:\lab02\src\main\java\com\nvminh162\lab02\horizontal\entity\UserMale.java
+T:\lab02\src\main\java\com\nvminh162\lab02\horizontal\repository\UserFemaleRepository.java
+T:\lab02\src\main\java\com\nvminh162\lab02\horizontal\repository\UserMaleRepository.java
+T:\lab02\src\main\java\com\nvminh162\lab02\horizontal\service\UserRoutingService.java
+T:\lab02\src\main\java\com\nvminh162\lab02\Lab02Application.java
+T:\lab02\src\main\java\com\nvminh162\lab02\vertical\entity\UserAccount.java
+T:\lab02\src\main\java\com\nvminh162\lab02\vertical\entity\UserProfile.java
+T:\lab02\src\main\java\com\nvminh162\lab02\vertical\repository\UserAccountRepository.java
