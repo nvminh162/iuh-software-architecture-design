@@ -1,5 +1,0 @@
-com\nvminh162\backend\repository\ProductRepository.class
-com\nvminh162\backend\BackendApplication.class
-com\nvminh162\backend\config\DatabaseInitializer.class
-com\nvminh162\backend\controller\SearchController.class
-com\nvminh162\backend\model\Product.class
