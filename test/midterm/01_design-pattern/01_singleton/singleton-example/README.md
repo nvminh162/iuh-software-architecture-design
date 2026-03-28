@@ -12,7 +12,6 @@
 ## Có những cách tạo ra Singleton theo từng trường hợp sử dụng
 - Trên thực tế chúng ta có rất nhiều cách để tạo ra một Singleton tuy nhiên mình sẽ chỉ giới thiệu những mẫu chính và thường gặp.
 - Gồm 4 trường hợp sau : Eager initialization, Lazy Initialization, Thread Safe, Double Check Locking.
-- Trên đây là lý thuyết sơ bộ về singleton và những trường hợp trên mình sẽ đề cập trong video trên kênh của mình mong các bạn sẽ quan tâm.
 
 ## Ví dụ 
 - ứng dụng phát nhạc: tại 1 thời điểm chỉ muốn client nghe 1 bài duy nhất
