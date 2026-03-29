@@ -5,4 +5,8 @@ public class HardCandy implements Candy {
     public String getCandyName() {
         return "Hard Candy";
     }
+
+    public String candyOtherMethod() {
+        return "Candy Other Method";
+    }
 }

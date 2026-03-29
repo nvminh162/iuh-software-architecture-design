@@ -1,7 +1,5 @@
 package com.nvminh162;
 
-import java.sql.SQLOutput;
-
 public class Main {
     public static void main(String[] args) {
         Candy hardCandy = CandyFactory.getCandy(CandyType.HARD);
@@ -17,5 +15,6 @@ public class Main {
         HardCandy hardCandyClazz = (HardCandy) CandyFactory.getCandy(CandyType.HARD);
         System.out.println("+++++++++");
         System.out.println(hardCandyClazz.getCandyName());
+        System.out.println(hardCandyClazz.candyOtherMethod());
     }
 }
