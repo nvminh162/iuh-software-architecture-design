@@ -1,7 +1,12 @@
 package com.nvminh162;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-
+public class CandyFactory {
+    public static Candy getCandy(CandyType candyType) {
+        if (candyType == CandyType.HARD) {
+            return new HardCandy();
+        } else if (candyType == CandyType.MINTY) {
+            return new MintyCandy();
+        }
+        return null;
+    }
 }

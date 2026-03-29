@@ -1,4 +1,5 @@
 package com.nvminh162;
 
-public class CandyType {
+public enum CandyType {
+    MINTY, HARD
 }
