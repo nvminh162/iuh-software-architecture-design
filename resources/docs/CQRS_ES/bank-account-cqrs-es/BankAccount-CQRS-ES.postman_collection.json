@@ -1,0 +1,186 @@
+{
+  "info": {
+    "_postman_id": "8e241ff9-6ab0-4c06-bf5d-94f7893b306f",
+    "name": "Bank Account CQRS ES",
+    "description": "Full endpoint collection for Bank Account CQRS + Event Sourcing API.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    },
+    {
+      "key": "accountId",
+      "value": "A001"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Create Account",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"accountId\": \"{{accountId}}\",\n  \"initialBalance\": 1000\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/commands/accounts",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "commands",
+            "accounts"
+          ]
+        },
+        "description": "Create a new account and store AccountCreated event."
+      },
+      "response": []
+    },
+    {
+      "name": "2. Deposit Money",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"amount\": 250\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/commands/accounts/{{accountId}}/deposit",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "commands",
+            "accounts",
+            "{{accountId}}",
+            "deposit"
+          ]
+        },
+        "description": "Store MoneyDeposited event."
+      },
+      "response": []
+    },
+    {
+      "name": "3. Withdraw Money",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"amount\": 100\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/commands/accounts/{{accountId}}/withdraw",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "commands",
+            "accounts",
+            "{{accountId}}",
+            "withdraw"
+          ]
+        },
+        "description": "Store MoneyWithdrawn event."
+      },
+      "response": []
+    },
+    {
+      "name": "4. Get Balance (Replay Events)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/queries/accounts/{{accountId}}/balance",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "queries",
+            "accounts",
+            "{{accountId}}",
+            "balance"
+          ]
+        },
+        "description": "Query side: computes balance by replaying stored events."
+      },
+      "response": []
+    },
+    {
+      "name": "5. Withdraw Too Much (Error Case)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"amount\": 999999\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/commands/accounts/{{accountId}}/withdraw",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "commands",
+            "accounts",
+            "{{accountId}}",
+            "withdraw"
+          ]
+        },
+        "description": "Expected 400 Bad Request with insufficient balance message."
+      },
+      "response": []
+    },
+    {
+      "name": "6. Query Missing Account (Error Case)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/queries/accounts/UNKNOWN/balance",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "queries",
+            "accounts",
+            "UNKNOWN",
+            "balance"
+          ]
+        },
+        "description": "Expected 400 Bad Request when account does not exist."
+      },
+      "response": []
+    }
+  ]
+}
