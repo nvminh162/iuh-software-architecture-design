@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  # Hazelcast Members (cluster apenas)
+  hazelcast-1:
+    image: hazelcast/hazelcast:5.3.6
+    container_name: hazelcast-1
+    environment:
+      - HZ_CLUSTERNAME=space-based-cluster
+      - JAVA_OPTS=-Dhazelcast.rest.enabled=true -Dhazelcast.local.publicAddress=18.142.254.111:5701
+    ports:
+      - "5701:5701"
+    networks:
+      - space-network
+    restart: unless-stopped
+
+  hazelcast-2:
+    image: hazelcast/hazelcast:5.3.6
+    container_name: hazelcast-2
+    environment:
+      - HZ_CLUSTERNAME=space-based-cluster
+      - JAVA_OPTS=-Dhazelcast.rest.enabled=true -Dhazelcast.local.publicAddress=18.142.254.111:5702
+    ports:
+      - "5702:5701"
+    networks:
+      - space-network
+    restart: unless-stopped
+
+  hazelcast-3:
+    image: hazelcast/hazelcast:5.3.6
+    container_name: hazelcast-3
+    environment:
+      - HZ_CLUSTERNAME=space-based-cluster
+      - JAVA_OPTS=-Dhazelcast.rest.enabled=true -Dhazelcast.local.publicAddress=18.142.254.111:5703
+    ports:
+      - "5703:5701"
+    networks:
+      - space-network
+    restart: unless-stopped
+  
+
+networks:
+  space-network:
+    driver: bridge

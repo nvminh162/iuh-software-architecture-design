@@ -1,0 +1,52 @@
+[
+  {
+    "cliente": "João Silva",
+    "produto": "Notebook Dell Inspiron 15",
+    "quantidade": 1
+  },
+  {
+    "cliente": "Maria Santos",
+    "produto": "Mouse Logitech MX Master 3",
+    "quantidade": 2
+  },
+  {
+    "cliente": "Pedro Oliveira",
+    "produto": "Teclado Mecânico Razer BlackWidow",
+    "quantidade": 1
+  },
+  {
+    "cliente": "Ana Costa",
+    "produto": "Monitor Samsung 27\" 4K",
+    "quantidade": 1
+  },
+  {
+    "cliente": "Carlos Ferreira",
+    "produto": "Webcam Logitech C920",
+    "quantidade": 3
+  },
+  {
+    "cliente": "Lucia Almeida",
+    "produto": "SSD Samsung 1TB NVMe",
+    "quantidade": 2
+  },
+  {
+    "cliente": "Roberto Lima",
+    "produto": "Placa de Vídeo RTX 4070",
+    "quantidade": 1
+  },
+  {
+    "cliente": "Fernanda Rocha",
+    "produto": "Headset HyperX Cloud II",
+    "quantidade": 1
+  },
+  {
+    "cliente": "Marcos Pereira",
+    "produto": "Cadeira Gamer DXRacer",
+    "quantidade": 1
+  },
+  {
+    "cliente": "Juliana Martins",
+    "produto": "Mesa Gamer 160cm",
+    "quantidade": 1
+  }
+]

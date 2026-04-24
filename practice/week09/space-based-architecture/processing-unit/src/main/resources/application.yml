@@ -1,0 +1,54 @@
+spring:
+  application:
+    name: processing-unit
+  profiles:
+    active: dev
+
+logging:
+  level:
+    com.example: INFO
+    com.hazelcast: WARN
+    org.springframework: WARN
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+hazelcast:
+  port: 5701
+  cluster:
+    name: space-based-cluster
+
+processing:
+  unit:
+    id: PU-${random.uuid}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+logging:
+  level:
+    com.example: DEBUG
+    com.hazelcast: INFO
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+logging:
+  level:
+    com.example: INFO
+    com.hazelcast: WARN
+    org.springframework: WARN

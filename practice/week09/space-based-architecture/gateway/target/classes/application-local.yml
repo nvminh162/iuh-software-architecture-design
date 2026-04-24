@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: gateway
+
+logging:
+  level:
+    com.example: DEBUG
+    com.hazelcast: INFO
+    org.springframework: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+hazelcast:
+  cluster:
+    name: space-based-cluster
+  client:
+    addresses: ${HAZELCAST_CLIENT_ADDRESSES:18.142.254.111:5701,18.142.254.111:5702,18.142.254.111:5703}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
