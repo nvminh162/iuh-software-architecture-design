@@ -1,6 +1,10 @@
 ## Student: Nguyễn Văn Minh - 22003405
 ### Week 07 - 2025 - 2026
 
+```
+https://github.com/giasinguyen/software-engineering-projects/tree/main/mini-food-app
+```
+
 #### Theory
 ```
 Kiến trúc và Thiết kế Phần mềm
